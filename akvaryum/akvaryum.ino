@@ -32,6 +32,7 @@
 #define SERVER_IP "192.168.1.100"
 #define SSID "Guler"
 #define PASSWORD "melisglr2403$1"
+#define myversion "Version 16.01.18"
 //#define wifi Serial2
 
 unsigned long previousupdate = 0;
@@ -92,13 +93,13 @@ void setup()
 {
 //#if defined(DEBUGMODE)
   Serial.begin(9600);
-  debuglog("akvaryumkontrol_140417");
+  debuglog(myversion);
 //#endif
   lcd.init();
   lcd.begin(16, 2);     // start lcd library
   lcd.backlight();      //turn lcd backlight on
   lcd.setCursor(0, 0);
-  lcd.print("Version 17.04.14");
+  lcd.print(myversion);
   delay (1000);
   lcd.print("8-Setup started ");
   debuglog("lcd ok");
@@ -124,6 +125,7 @@ void setup()
   digitalWrite(6, HIGH);    //set right pin high
   digitalWrite(sump, HIGH); //set sump sensor pin high
   digitalWrite(sens_power, HIGH); //set sensor power on
+  digitalWrite(role4, HIGH);  //set motor 1 on
   lcd.setCursor(0, 0);
   lcd.print("6-Pinconfig   OK");
   debuglog("pinconfig ok");
